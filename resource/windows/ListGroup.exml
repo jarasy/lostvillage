@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Group class="lv.ListGroup" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+    <e:Image scale9Grid="2,2,173,43" left="0" right="0" anchorOffsetY="0" bottom="0" top="0" fillMode="clip" source="border_png"/>
+    <e:Scroller left="0" right="0" top="0" bottom="83" bounces="false" anchorOffsetY="0">
+        <e:List id="list" x="1" y="1">
+					<e:ArrayCollection>
+						<e:Array>
+							<e:Object label="关卡 1-1 初出茅庐"/>
+							<e:Object label="关卡 1-2 一战成名"/>
+							<e:Object label="关卡 1-3 历尽艰辛"/>
+							<e:Object label="关卡 1-4 百年好合"/>
+							<e:Object label="关卡 1-5 刻苦锻炼"/>
+							<e:Object label="关卡 1-6 天下第一"/>
+							<e:Object label="关卡 1-7 蓦然回首"/>
+							<e:Object label="关卡 1-8 独孤求败"/>
+							<e:Object label="关卡 1-9 成宗立派"/>
+							<e:Object label="关卡 1-10 香火绵延"/>
+						</e:Array>
+					</e:ArrayCollection>
+        </e:List>
+    </e:Scroller>
+	<e:Button id="btn_01" label="关闭" x="38.5" y="513.12" name="btn_01"/>
+</e:Group>

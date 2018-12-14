@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="lv.IndexScene" width="640" height="1136" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" xmlns:components="components.*" xmlns:lv="lv.*">
+	<e:Rect left="0" right="0" anchorOffsetX="0" anchorOffsetY="0" top="0" bottom="0" fillColor="0x2b0707" ellipseWidth="150" ellipseHeight="150"/>
+	<e:Button id="btn_bb" label="背包" x="88.21" y="1045.42"/>
+	
+</e:Skin>

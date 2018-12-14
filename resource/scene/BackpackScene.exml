@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="BackpackSceneSkin" width="640" height="1136" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="16759c65617" ></w:Config>
+	<e:Rect left="-2" right="2" top="0" bottom="0" fillColor="0x7f5757"/>
+	<e:Group height="450" left="0" right="0" y="675.15">
+		<e:Group id="grp_sxm" width="90" height="430" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" top="100" x="45">
+			<e:Label text="等级:" x="170" y="328" size="30"/>
+			<e:Label text="生命:" x="31" y="64" size="30"/>
+			<e:Label text="魂力:" x="90" y="248" size="30"/>
+			<e:Label text="物攻:" x="110" y="268" size="30"/>
+			<e:Label text="念攻:" x="130" y="288" size="30"/>
+			<e:Label text="闪避:" x="150" y="308" size="30"/>
+			<e:Label text="物爆:" x="190" y="348" size="30"/>
+			<e:Label text="念暴:" x="70" y="228" size="30"/>
+			<e:layout>
+				<e:VerticalLayout gap="10"/>
+			</e:layout>
+		</e:Group>
+		<e:Group id="grp_sx" width="150" height="430" anchorOffsetX="0" y="100" anchorOffsetY="0" x="135" scaleX="1" scaleY="1">
+			<e:Label text="88" x="-335.00000000000006" y="36" size="30" scaleX="1" scaleY="1"/>
+			<e:Label text="88" x="-335.00000000000006" y="108" size="30" scaleX="1" scaleY="1"/>
+			<e:Label text="88" x="-335.00000000000006" y="180" size="30" scaleX="1" scaleY="1"/>
+			<e:Label text="88" x="-335.00000000000006" y="252.00000000000006" size="30" scaleX="1" scaleY="1"/>
+			<e:Label text="88" x="-335.00000000000006" y="324.00000000000006" size="30" scaleX="1" scaleY="1"/>
+			<e:Label text="188" x="-335.00000000000006" y="396" size="30" scaleX="1" scaleY="1"/>
+			<e:Label text="188" x="-335.00000000000006" y="468" size="30" scaleX="1" scaleY="1"/>
+			<e:Label text="188" x="-335.00000000000006" y="540" size="30" scaleX="1" scaleY="1"/>
+			<e:layout>
+				<e:VerticalLayout gap="10"/>
+			</e:layout>
+		</e:Group>
+		<e:Group id="grp_bw" width="90" height="240" anchorOffsetX="0" anchorOffsetY="0" x="285" y="100" scaleX="1" scaleY="1">
+			<e:Label text="魂器:" x="130" y="288" size="30"/>
+			<e:Label text="头部:" x="170" y="328" size="30"/>
+			<e:Label text="身体:" x="31" y="64" size="30"/>
+			<e:Label text="手部:" x="90" y="248" size="30"/>
+			<e:Label text="腿部:" x="110" y="268" size="30"/>
+			<e:layout>
+			<e:VerticalLayout gap="10"/>
+			</e:layout>
+		</e:Group>
+		<e:Group id="grp_zb" width="150" height="240" anchorOffsetX="0" anchorOffsetY="0" x="375" y="100" scaleX="1" scaleY="1">
+			<e:Label text="魂匕首" x="170" y="328" size="30"/>
+			<e:Label text="魂铁盔" x="31" y="64" size="30"/>
+			<e:Label text="魂甲" x="90" y="248" size="30"/>
+			<e:Label text="魂手套" x="110" y="268" size="30"/>
+			<e:Label text="魂靴" x="130" y="288" size="30"/>
+			<e:layout>
+			<e:VerticalLayout gap="10"/>
+			</e:layout>
+		</e:Group>
+		<e:Group id="grp_hj" width="220" height="200" anchorOffsetX="0" y="313.64" anchorOffsetY="0" x="298.79" scaleX="1" scaleY="1">
+			<e:Label text="魂阶:" x="16.55" y="13.43" size="25"/>
+			<e:Label text="黄" x="91.94" y="34.52" size="55"/>
+		</e:Group>
+		<e:Button id="btn_back" label="返回" right="30" bottom="20" enabled="true"/>
+	</e:Group>
+	<e:Group height="569.7" y="0" left="0" right="0" anchorOffsetY="0">
+		<e:TabBar width="127.27" height="12.12" x="18" y="50.91" dataProvider="{viewStack}" anchorOffsetX="0" anchorOffsetY="0">
+			<e:layout>
+				<e:VerticalLayout/>
+			</e:layout>
+		</e:TabBar>
+		<e:ViewStack id="viewStack" height="500" y="40" anchorOffsetX="0" left="142" right="16" selectedIndex="2">
+			<e:Group id="grp_tab0" width="100%" height="100%" name="物品" anchorOffsetX="0" x="10" y="10">
+				<e:Rect left="0" right="0" top="0" bottom="0" fillColor="0x8e7c7c" fillAlpha="0.2"/>
+				<e:Scroller left="1" right="1" top="1" bottom="1" bounces="false">
+					<e:List id="list">
+					<e:itemRendererSkinName>
+						<e:Skin states="up,down,disabled" height="64">
+						<e:Image width="100%" height="100%" scale9Grid="1,3,8,8" source="selected_png" source.down="button_down_png"/>
+						<e:Label size="24" fontFamily="Tahoma" text="{data.label}" textColor="0x555555" textColor.down="0x000000" left="32" verticalCenter="0"/>
+						<e:Label text="{data.num}" x="304" y="12.03"/>
+						</e:Skin>
+					</e:itemRendererSkinName>
+					<e:ArrayCollection>
+						<e:Array>
+						<e:Object label="初出茅庐" num="x1"/>
+						<e:Object label="一战成名" num="x2"/>
+						<e:Object label="历尽艰辛" num="x1"/>
+						<e:Object label="百年好合" num="x1"/>
+						<e:Object label="刻苦锻炼" num="x1"/>
+						<e:Object label=" 天下第一" num="x1"/>
+						<e:Object label="蓦然回首" num="x1"/>
+						<e:Object label="独孤求败" num="x1"/>
+						<e:Object label=" 成宗立派" num="x1"/>
+						<e:Object label="香火绵延" num="x1"/>
+						</e:Array>
+					</e:ArrayCollection>
+					</e:List>
+				</e:Scroller>
+			</e:Group>
+			<e:Group id="grp_tab1" width="100%" height="100%" name="装备" anchorOffsetX="0" x="10" y="10" scaleX="1" scaleY="1" visible="false">
+				<e:Scroller left="1" right="1" top="1" bottom="1" bounces="false">
+				<e:List id="list0">
+					<e:itemRendererSkinName>
+					<e:Skin states="up,down,disabled" height="64">
+						<e:Image width="100%" height="100%" scale9Grid="1,3,8,8" source="selected_png" source.down="button_down_png"/>
+						<e:Label size="24" fontFamily="Tahoma" text="{data.label}" textColor="0x555555" textColor.down="0x000000" left="32" verticalCenter="0"/>
+						<e:Label text="{data.num}" x="304" y="12.03"/>
+					</e:Skin>
+					</e:itemRendererSkinName>
+				</e:List>
+				</e:Scroller>
+			</e:Group>
+			<e:Group id="grp_tab2" width="100%" height="100%" name="材料" anchorOffsetX="0" x="10" y="10" scaleX="1" scaleY="1" visible="false">
+				<e:Scroller left="1" right="1" top="1" bottom="1" bounces="false">
+				<e:List id="list1">
+					<e:itemRendererSkinName>
+					<e:Skin states="up,down,disabled" height="64">
+						<e:Image width="100%" height="100%" scale9Grid="1,3,8,8" source="selected_png" source.down="button_down_png"/>
+						<e:Label size="24" fontFamily="Tahoma" text="{data.label}" textColor="0x555555" textColor.down="0x000000" left="32" verticalCenter="0"/>
+						<e:Label text="{data.num}" x="304" y="12.03"/>
+					</e:Skin>
+					</e:itemRendererSkinName>
+				</e:List>
+				</e:Scroller>
+			</e:Group>
+			<e:Group id="grp_tab3" width="100%" height="100%" name="物品" anchorOffsetX="0" x="10" y="10" scaleX="1" scaleY="1" visible="false">
+				<e:Scroller left="1" right="1" top="1" bottom="1" bounces="false">
+				<e:List id="list2">
+					<e:itemRendererSkinName>
+					<e:Skin states="up,down,disabled" height="64">
+						<e:Image width="100%" height="100%" scale9Grid="1,3,8,8" source="selected_png" source.down="button_down_png"/>
+						<e:Label size="24" fontFamily="Tahoma" text="{data.label}" textColor="0x555555" textColor.down="0x000000" left="32" verticalCenter="0"/>
+						<e:Label text="{data.num}" x="304" y="12.03"/>
+					</e:Skin>
+					</e:itemRendererSkinName>
+				</e:List>
+				</e:Scroller>
+			</e:Group>
+		</e:ViewStack>
+	</e:Group>
+</e:Skin>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="lv.LoginScene" width="640" height="1136" xmlns:e="http://ns.egret.com/eui" xmlns:ns1="*" xmlns:w="http://ns.egret.com/wing">
+	<e:Rect left="0" right="0" top="0" bottom="0" fillColor="0x9b6666"/>
+	<e:Rect left="0" right="0" top="0" bottom="0" fillColor="0x593232" ellipseWidth="150" ellipseHeight="150"/>
+	<e:Button id="btn_login" label="入梦时分" y="869.7" width="150" height="60" horizontalCenter="0" skinName="skins.ButtonSkin"/>
+	<e:Label text="迷失的村落" y="476" verticalAlign="top" horizontalCenter="0" size="45"/>
+</e:Skin>
