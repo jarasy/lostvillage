@@ -10,5 +10,9 @@ var Sk_DATA;
     //检查注册用户URL
     Sk_DATA.CHECK_USER_URL = Sk_DATA.BASEURL + "/user/checkUser";
     //获取角色URL
-    Sk_DATA.GET_USER_URL = Sk_DATA.BASEURL + "/user/getUser";
+    Sk_DATA.GET_ROLE_URL = Sk_DATA.BASEURL + "/user/getRole";
+    //新增角色URL
+    Sk_DATA.ADD_ROLE_URL = Sk_DATA.BASEURL + "/user/addRole";
+    //获取角色属性URL
+    Sk_DATA.GET_ROLEPROPERTY_URL = Sk_DATA.BASEURL + "/user/getRoleProperty";
 })(Sk_DATA || (Sk_DATA = {}));

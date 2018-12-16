@@ -2,17 +2,23 @@
 
 class GameScene extends Scene {
 	public btn_bb: eui.Button;
-	public g_01: eui.Group;
+	public dj: eui.Label;
+	public hs: eui.Label;
+	public mc: eui.Label;
+	public property: eui.Label;
 
 	public constructor() {
 		super();
 		this.skinName = "resource/scene/GameScene.exml";
-		
 	}
 	protected onComplete() {
-		
-	
-
+		console.log(egret.localStorage.getItem("property"));
+		var data=JSON.parse(egret.localStorage.getItem("property"));
+		egret.localStorage.setItem("roleId",data.id);
+		this.dj.text=data.level;
+		this.mc.text=data.name;
+		this.hs.text=data.hs;
+		this.property.text=data.hp+"_"+data.mp+"_"+data.gj+"_"+data.fy+"_"+data.sd+"_"+data.hx;
 		this.btn_bb.touchEnabled = true;
 		this.btn_bb.addEventListener(egret.TouchEvent.TOUCH_TAP, this.toShowView, this);
 	}
@@ -35,14 +41,10 @@ class GameScene extends Scene {
 
 
 
+
 	private toShowView() {
 		let bs:BackpackScene =new BackpackScene();
-		SceneManager.Instance.pushScene(bs);
+		SceneManager.Instance.changeScene(bs);
 	}
 
-	private toShowView1(event:egret.TouchEvent) {
-		///获得当前按钮
-        var btn:eui.Button = <eui.Button>event.target;
-		this.removeChild(this.g_01);
-	}
 }

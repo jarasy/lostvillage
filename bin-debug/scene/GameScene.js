@@ -16,6 +16,11 @@ var GameScene = (function (_super) {
         return _this;
     }
     GameScene.prototype.onComplete = function () {
+        var data = JSON.parse(egret.localStorage.getItem("property"));
+        this.dj.text = data.level;
+        this.mc.text = data.name;
+        this.hs.text = data.hs;
+        this.property.text = data.hp + "_" + data.mp + "_" + data.gj + "_" + data.fy + "_" + data.sd + "_" + data.hx;
         this.btn_bb.touchEnabled = true;
         this.btn_bb.addEventListener(egret.TouchEvent.TOUCH_TAP, this.toShowView, this);
     };
@@ -37,11 +42,6 @@ var GameScene = (function (_super) {
     GameScene.prototype.toShowView = function () {
         var bs = new BackpackScene();
         SceneManager.Instance.pushScene(bs);
-    };
-    GameScene.prototype.toShowView1 = function (event) {
-        ///获得当前按钮
-        var btn = event.target;
-        this.removeChild(this.g_01);
     };
     return GameScene;
 }(Scene));

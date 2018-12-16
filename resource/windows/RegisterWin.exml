@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="tanchu" width="640" height="1136" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<e:Rect fillColor="0xd6c2c2" strokeColor="0x444444" left="0" right="0" top="0" bottom="0" fillAlpha="0.6"/>
-	<e:Rect width="400" height="500" horizontalCenter="0" verticalCenter="0" fillColor="0x53b0b5"/>
+	<e:Rect width="400" height="500" horizontalCenter="3" verticalCenter="3" fillColor="0x53b0b5"/>
 	<e:Button id="btn_ok" label="完成" x="270" y="725.67"/>
-	<e:TextInput id="ipt_name" width="150" height="30" y="429.88" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0"/>
+	<e:TextInput id="ipt_name" width="150" height="30" y="429.88" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="50"/>
+	<e:Label text="名称" x="176" y="429.88"/>
+	<e:Label text="性别" x="176" y="500"/>
+	<e:RadioButton id="rb_nan" label="男魂" x="294" y="509" value="1"/>
+	<e:RadioButton id="rb_nv" label="女魂" x="374" y="508" value="0"/>
+	<e:Label text="职业" x="183" y="574"/>
+	<e:RadioButton id="rb_dao" label="刀魂士" x="297" y="574" value="1"/>
+	<e:RadioButton id="rb_jian" label="剑魂师" x="297" y="620" value="2"/>
+	<e:RadioButton id="rb_qiang" label="枪术师" x="297" y="661" value="3"/>
 </e:Skin>

@@ -1,7 +1,10 @@
 {
-    "16759c65617": {
-        "path": "..\\resource\\scene\\BackpackScene.ts",
-        "class": "BackpackScene",
-        "parentPath": ""
-    }
+  "16759c65617": {
+    "path": "..\\resource\\scene\\BackpackScene.ts",
+    "class": "BackpackScene",
+    "parentPath": ""
+  },
+  "global": {
+    "globalAutoLayerMarkEnable": false
+  }
 }

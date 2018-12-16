@@ -25,12 +25,25 @@ var LoginScene = (function (_super) {
     LoginScene.prototype.onLogin = function () {
         var data = JSON.parse("{\"openid\":\"" + egret.localStorage.getItem("openid") + "\"}");
         //Sk_PostJSON.SendTo(data,this.onLoadTx,"",Sk_DATA.GET_USER_URL,this);
-        Sk_PostJSON.SendTo(data, this.onGetUser, "", Sk_DATA.GET_USER_URL, this);
+        var lw = new LoadingWin();
+        SceneManager.Instance.pushScene(lw);
+        Sk_PostJSON.SendTo(data, this.onGetRole, "", Sk_DATA.GET_ROLE_URL, this);
     };
-    LoginScene.prototype.onGetUser = function (result, self) {
-        ///if(null==result.data){
-        self.toRegister();
-        //}
+    LoginScene.prototype.onGetRole = function (result, self) {
+        if (0 == result.data) {
+            self.toRegister();
+        }
+        else {
+            var data = JSON.parse("{\"openid\":\"" + egret.localStorage.getItem("openid") + "\"}");
+            Sk_PostJSON.SendTo(data, self.toLoadProperty, "", Sk_DATA.GET_ROLEPROPERTY_URL, this);
+        }
+    };
+    LoginScene.prototype.toLoadProperty = function (result, self) {
+        egret.localStorage.getItem("openid");
+        egret.localStorage.setItem("property", result.data);
+        var s1 = new GameScene();
+        //切换到首页
+        SceneManager.Instance.changeScene(s1);
     };
     //弹出场景
     LoginScene.prototype.toRegister = function () {

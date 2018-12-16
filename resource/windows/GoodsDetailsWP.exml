@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="Goods" width="640" height="1136" xmlns:e="http://ns.egret.com/eui">
+	<e:Rect top="0" bottom="0" left="0" right="0" fillColor="0xa07373" fillAlpha="0.7"/>
+	<e:Rect anchorOffsetX="0" anchorOffsetY="0" verticalCenter="0.5" height="500.99" horizontalCenter="0" width="491.91" fillColor="0x3d8191"/>
+	<e:Label text="奥斯卡大家好速度快解放后刷卡机东方红萨大黄蜂抗裂砂浆回复看电视剧恢复速度快发货速度快解放后" x="126.82" y="436.39" textAlign="center" anchorOffsetY="0" height="242.13" anchorOffsetX="0" width="380.31" italic="true" fontFamily="DFKai-SB" textColor="0xfcfcfc"/>
+	<e:Label text="详情" x="279.98" y="342.76" textColor="0xcdf4ed" size="40" bold="true"/>
+</e:Skin>

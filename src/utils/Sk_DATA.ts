@@ -23,17 +23,23 @@ module Sk_DATA {
     //场景控制
 
     //基础域名
-    export var BASEURL="https://jarasy.25tk.cn/api";
-    //export var BASEURL="http://127.0.0.1:9301";
+    //export var BASEURL="https://jarasy.25tk.cn/api";
+    export var BASEURL="http://127.0.0.1:9301";
     //检查注册用户URL
     export var CHECK_USER_URL =BASEURL+"/user/checkUser";
     //获取角色URL
-    export var GET_USER_URL =BASEURL+"/user/getRole";
+    export var GET_ROLE_URL =BASEURL+"/user/getRole";
     //新增角色URL
-    export var GET_USER_URL =BASEURL+"/user/addRole";
+    export var ADD_ROLE_URL =BASEURL+"/user/addRole";
 
     //获取角色属性URL
-    export var GET_USER_URL =BASEURL+"/user/getRoleProperty";
+    export var GET_ROLEPROPERTY_URL =BASEURL+"/user/getRoleProperty";
+
+    //类型获取背包物品URL
+    export var GET_GOODSBYTYPE_URL =BASEURL+"/backpake/selectGoodsByType";
+
+    //ID获取物品URL
+    export var GET_GOODSBYID_URL =BASEURL+"/backpake/selectGoodsById";
 
 
 

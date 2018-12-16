@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="Goods" width="640" height="1136" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Rect top="0" bottom="0" left="0" right="0" fillColor="0xa07373" fillAlpha="0.7"/>
+	<e:Rect anchorOffsetX="0" anchorOffsetY="0" verticalCenter="-51" height="604.02" horizontalCenter="-3" width="490" fillColor="0x558b96"/>
+	<e:Label id="lab_gj" text="0" x="240.92" y="460" size="30" anchorOffsetX="0" width="68" anchorOffsetY="0" height="38" textAlign="center" textColor="0xf79494"/>
+	<e:Label id="lab_fy" text="0" x="323.5" y="460" size="30" anchorOffsetX="0" width="68" anchorOffsetY="0" height="38" textAlign="center" textColor="0xf2aa65"/>
+	<e:Label id="lab_sd" text="0" x="399.57" y="460" size="30" anchorOffsetX="0" width="68" anchorOffsetY="0" height="38" textAlign="center" textColor="0xd8e559"/>
+	<e:Label id="lab_hx" text="0" x="473.13" y="460" size="30" anchorOffsetX="0" width="68" anchorOffsetY="0" height="38" textAlign="center" textColor="0x070abc"/>
+	<e:Label id="lab_hp" text="100" x="91.43" y="460" size="30" anchorOffsetX="0" width="68" anchorOffsetY="0" height="38" textAlign="center" textColor="0xf74747"/>
+	<e:Button id="btn_zb" label="装备" x="101.86" y="718.61" anchorOffsetX="0" width="120" anchorOffsetY="0" height="60"/>
+	<e:Button id="btn_dq" label="丢弃" x="256.35" y="718.61" anchorOffsetX="0" width="120" anchorOffsetY="0" height="60"/>
+	<e:Label id="lab_xq" text="奥斯卡大家好速度快解放后刷卡机东方红萨大黄蜂抗裂砂浆回复看电视剧恢复速度快发货速度快解放后" x="129.85" y="522.7" textAlign="center" anchorOffsetY="0" height="166.37" anchorOffsetX="0" width="380.31" italic="true" fontFamily="DFKai-SB" textColor="0xfcfcfc"/>
+	<e:Label text="详情" x="80.12" y="239.66" textColor="0xcdf4ed" size="52" bold="true" anchorOffsetY="0" height="69.21" anchorOffsetX="0" width="473.76" textAlign="center"/>
+	<e:Button id="btn_qx" label="取消" x="413.13" y="718.61" anchorOffsetX="0" width="120" anchorOffsetY="0" height="60"/>
+	<e:Label text="血    魂    攻     防    速    会" y="417.99" size="35" anchorOffsetY="0" height="46.07" anchorOffsetX="0" verticalAlign="justify" textAlign="center" width="415" left="73" right="82"/>
+	<e:Label id="lab_mp" text="0" x="169.01" y="460" size="30" anchorOffsetX="0" width="68" anchorOffsetY="0" height="38" textAlign="center" textColor="0x60cbdb"/>
+	<e:Label id="lab_name" text="护手" x="87.27" y="327.46" size="38" anchorOffsetY="0" height="57.12" anchorOffsetX="0" width="456.45" textAlign="center" verticalAlign="middle"/>
+</e:Skin>
