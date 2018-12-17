@@ -21,6 +21,12 @@ class BackpackScene extends Scene {
 	public lab_fy: eui.Label;
 	public lab_sd: eui.Label;
 	public lab_hx: eui.Label;
+
+	public lab_hq: eui.Label;
+	public lab_tb: eui.Label;
+	public lab_st: eui.Label;
+	public lab_sb: eui.Label;
+	public lab_tui: eui.Label;
 	
 	public lab_rank: eui.Label;
 
@@ -30,12 +36,17 @@ class BackpackScene extends Scene {
 		
 		var data=JSON.parse("{\"roleId\":\""+egret.localStorage.getItem("roleId")+"\",\"type\":\"1\"}");	
 		Sk_PostJSON.SendTo(data,this.toLoadData1,"",Sk_DATA.GET_GOODSBYTYPE_URL,this);	 
-		var data=JSON.parse("{\"roleId\":\""+egret.localStorage.getItem("roleId")+"\",\"type\":\"2\"}");	
+		data=JSON.parse("{\"roleId\":\""+egret.localStorage.getItem("roleId")+"\",\"type\":\"2\"}");	
 		Sk_PostJSON.SendTo(data,this.toLoadData2,"",Sk_DATA.GET_GOODSBYTYPE_URL,this);	 
-		var data=JSON.parse("{\"roleId\":\""+egret.localStorage.getItem("roleId")+"\",\"type\":\"3\"}");	
+		Sk_PostJSON.SendTo(data,this.toLoadData5,"",Sk_DATA.GET_ZBGOODS_URL,this);	 
+
+		data=JSON.parse("{\"roleId\":\""+egret.localStorage.getItem("roleId")+"\",\"type\":\"3\"}");	
 		Sk_PostJSON.SendTo(data,this.toLoadData3,"",Sk_DATA.GET_GOODSBYTYPE_URL,this);	 
-		var data=JSON.parse("{\"roleId\":\""+egret.localStorage.getItem("roleId")+"\",\"type\":\"4\"}");	
+		data=JSON.parse("{\"roleId\":\""+egret.localStorage.getItem("roleId")+"\",\"type\":\"4\"}");	
 		Sk_PostJSON.SendTo(data,this.toLoadData4,"",Sk_DATA.GET_GOODSBYTYPE_URL,this);	 
+
+		
+
 	}
 
 
@@ -79,8 +90,8 @@ class BackpackScene extends Scene {
     }
 	private onChange0(e:eui.PropertyEvent):void{
         //获取点击消息
-        console.log(this.list0.selectedItem.id,this.list0.selectedIndex)
-		let gd:GoodsDetailsZB =new GoodsDetailsZB(this.list0.selectedItem.id);
+        console.log(this.list0.selectedItem.bid,this.list0.selectedIndex)
+		let gd:GoodsDetailsZB =new GoodsDetailsZB(this.list0.selectedItem.gid,this.list0.selectedItem.bid,this.list0.selectedItem.equipped);
 		SceneManager.Instance.pushScene(gd);
     }
 	private onChange1(e:eui.PropertyEvent):void{
@@ -100,18 +111,47 @@ class BackpackScene extends Scene {
 		let arrCollection: eui.ArrayCollection = new eui.ArrayCollection(data);
 		list.dataProvider = arrCollection;	
 	}
+
+		/** 进行数据绑定 */
+	public bindZbData(list:eui.List,data:Array<any>): void {
+		for (let i=0;i<data.length;i++) {
+			console.log(data[i]);
+			if(data[i].equipped==1){
+				data[i].count="已装备";
+			}else{
+				data[i].count="";
+			}
+		}
+		let arrCollection: eui.ArrayCollection = new eui.ArrayCollection(data);
+		list.dataProvider = arrCollection;	
+	}
+
 	private toLoadData1(result,self) {
 		self.bindData(self.list,result.data);
 		self.viewStack.selectedIndex=0;
 	}
 	private toLoadData2(result,self) {
-		self.bindData(self.list0,result.data);
+		self.bindZbData(self.list0,result.data);
 	}
 	private toLoadData3(result,self) {
 		self.bindData(self.list1,result.data);
 	}
 	private toLoadData4(result,self) {
 		self.bindData(self.list2,result.data);
+	}
+
+	private toLoadData5(result,self) {
+	
+		let arr = [];
+		for (let item of result.data) {
+			var property:String[] =String(item.parameter).split("_");
+			arr[Number(property[0])]=item.name;
+		}
+		self.lab_hq.text=arr[0]==null?"无":arr[0];
+		self.lab_tb.text=arr[1]==null?"无":arr[1];
+		self.lab_st.text=arr[2]==null?"无":arr[2];
+		self.lab_sb.text=arr[3]==null?"无":arr[3];
+		self.lab_tui.text=arr[4]==null?"无":arr[4];
 	}
 
 	

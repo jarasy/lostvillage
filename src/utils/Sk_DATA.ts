@@ -41,6 +41,17 @@ module Sk_DATA {
     //ID获取物品URL
     export var GET_GOODSBYID_URL =BASEURL+"/backpake/selectGoodsById";
 
+    //type获取装备物品URL roleId type
+    export var GET_ZBGOODS_URL =BASEURL+"/backpake/selectZbByType";
+    //装备物品URL id type wz roleId
+    export var TO_ZB_URL =BASEURL+"/backpake/zbGoods";
+    //取下物品URL id
+    export var TO_QX_URL =BASEURL+"/backpake/outZbGoods";
+    //丢弃全部物品URL id
+    export var TO_DQALL_URL =BASEURL+"/backpake/dqGoodsForAll";
+    //丢弃物品(数量)URL id count
+    export var TO_DQCOUNT_URL =BASEURL+"/backpake/dqGoodsForCount";
+
 
 
     //微信
