@@ -52,7 +52,7 @@ class RegisterWin extends Scene{
         //console.log(this.gender+"=="+this.profession);
         let lw:LoadingWin = new LoadingWin();
 		SceneManager.Instance.pushScene(lw);
-        var data=JSON.parse("{\"openid\":\""+egret.localStorage.getItem("openid")+"\","+"\"name\":\""+this.ipt_name.text+"\","+"\"gender\":\""+this.gender+"\","+"\"profession\":\""+this.profession+"\"}");
+        var data=JSON.parse("{\"openId\":\""+egret.localStorage.getItem("openId")+"\","+"\"name\":\""+this.ipt_name.text+"\","+"\"gender\":\""+this.gender+"\","+"\"profession\":\""+this.profession+"\"}");
         Sk_PostJSON.SendTo(data,this.onToGameScene,"",Sk_DATA.ADD_ROLE_URL,this);
         
 	}

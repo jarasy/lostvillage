@@ -6,22 +6,28 @@
 		"libs/modules/assetsmanager/assetsmanager.js",
 		"libs/modules/tween/tween.js",
 		"libs/modules/promise/promise.js",
-		"libs/modules/game/game.js"
+		"libs/modules/game/game.js",
+		"libs/modules/particle/particle.js"
 	],
 	"game": [
 		"bin-debug/scene/Scene.js",
-		"bin-debug/scene/GameScene.js",
+		"bin-debug/scene/MapView.js",
 		"bin-debug/Main.js",
 		"bin-debug/Platform.js",
 		"bin-debug/ThemeAdapter.js",
 		"bin-debug/scene/BackpackScene.js",
 		"bin-debug/scene/FightingScene.js",
-		"bin-debug/LoadingUI.js",
+		"bin-debug/scene/GameScene.js",
 		"bin-debug/scene/LoginScene.js",
+		"bin-debug/scene/Map.js",
+		"bin-debug/LoadingUI.js",
+		"bin-debug/scene/Node.js",
 		"bin-debug/AssetAdapter.js",
 		"bin-debug/scene/SceneManager.js",
 		"bin-debug/utils/Sk_DATA.js",
 		"bin-debug/utils/Sk_PostJSON.js",
+		"bin-debug/utils/UTILS.js",
+		"bin-debug/windows/GoodsDetailsZB.js",
 		"bin-debug/windows/LoadingWin.js",
 		"bin-debug/windows/RegisterWin.js"
 	]

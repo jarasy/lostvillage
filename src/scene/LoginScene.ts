@@ -17,7 +17,7 @@ class LoginScene extends Scene {
 	}
 
 	private onLogin(){
-		var data=JSON.parse("{\"openid\":\""+egret.localStorage.getItem("openid")+"\"}");
+		var data=JSON.parse("{\"openId\":\""+egret.localStorage.getItem("openId")+"\"}");
 		//Sk_PostJSON.SendTo(data,this.onLoadTx,"",Sk_DATA.GET_USER_URL,this);
 		let lw:LoadingWin = new LoadingWin();
 		SceneManager.Instance.pushScene(lw);
@@ -31,12 +31,13 @@ class LoginScene extends Scene {
 		if(0==result.data){
 			self.toRegister();
 		}else{
-			var data=JSON.parse("{\"openid\":\""+egret.localStorage.getItem("openid")+"\"}");	
+			var data=JSON.parse("{\"openId\":\""+egret.localStorage.getItem("openId")+"\"}");	
 			Sk_PostJSON.SendTo(data,self.toLoadProperty,"",Sk_DATA.GET_ROLEPROPERTY_URL,this);	 
 		}
 	}
 	private toLoadProperty(result,self) {
 		egret.localStorage.setItem("property",result.data);	
+		SceneManager.Instance.popScene();
 		let s1:GameScene =  new GameScene();
             //切换到首页
         SceneManager.Instance.changeScene(s1);

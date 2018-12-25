@@ -23,7 +23,7 @@ var LoginScene = (function (_super) {
         this.btn_login.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onLogin, this);
     };
     LoginScene.prototype.onLogin = function () {
-        var data = JSON.parse("{\"openid\":\"" + egret.localStorage.getItem("openid") + "\"}");
+        var data = JSON.parse("{\"openId\":\"" + egret.localStorage.getItem("openId") + "\"}");
         //Sk_PostJSON.SendTo(data,this.onLoadTx,"",Sk_DATA.GET_USER_URL,this);
         var lw = new LoadingWin();
         SceneManager.Instance.pushScene(lw);
@@ -34,13 +34,13 @@ var LoginScene = (function (_super) {
             self.toRegister();
         }
         else {
-            var data = JSON.parse("{\"openid\":\"" + egret.localStorage.getItem("openid") + "\"}");
+            var data = JSON.parse("{\"openId\":\"" + egret.localStorage.getItem("openId") + "\"}");
             Sk_PostJSON.SendTo(data, self.toLoadProperty, "", Sk_DATA.GET_ROLEPROPERTY_URL, this);
         }
     };
     LoginScene.prototype.toLoadProperty = function (result, self) {
-        egret.localStorage.getItem("openid");
         egret.localStorage.setItem("property", result.data);
+        SceneManager.Instance.popScene();
         var s1 = new GameScene();
         //切换到首页
         SceneManager.Instance.changeScene(s1);

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="MapView" width="640" height="1136" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Rect top="0" bottom="0" left="0" right="0" fillColor="0x28292d" strokeColor="0x514242"/>
+	<e:Button id="btn_back" label="回城" x="473.09" y="1030.49"/>
+</e:Skin>

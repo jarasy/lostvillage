@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,game2_png,index_jpg",
+			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,game2_png,index_jpg,pot1_png,pot2_png,pot3_png,m_001_png,play_03_png,play_01_png,play_02_png,skill_01_json,skill_01_png,skill_02_png",
 			"name": "preload"
 		},
 		{
@@ -159,6 +159,56 @@
 			"name": "index_jpg",
 			"type": "image",
 			"url": "assets/game/index.jpg"
+		},
+		{
+			"name": "pot1_png",
+			"type": "image",
+			"url": "game/pot1.png"
+		},
+		{
+			"name": "pot2_png",
+			"type": "image",
+			"url": "game/pot2.png"
+		},
+		{
+			"name": "pot3_png",
+			"type": "image",
+			"url": "game/pot3.png"
+		},
+		{
+			"name": "m_001_png",
+			"type": "image",
+			"url": "game/monster/m_001.png"
+		},
+		{
+			"name": "play_03_png",
+			"type": "image",
+			"url": "game/player/play_03.png"
+		},
+		{
+			"name": "play_01_png",
+			"type": "image",
+			"url": "game/player/play_01.png"
+		},
+		{
+			"name": "play_02_png",
+			"type": "image",
+			"url": "game/player/play_02.png"
+		},
+		{
+			"name": "skill_01_json",
+			"type": "json",
+			"url": "game/particle/skill_01.json"
+		},
+		{
+			"name": "skill_01_png",
+			"type": "image",
+			"url": "game/particle/skill_01.png"
+		},
+		{
+			"name": "skill_02_png",
+			"type": "image",
+			"url": "game/skill/skill_02.png"
 		}
 	]
 }

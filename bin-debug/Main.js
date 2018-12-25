@@ -108,7 +108,7 @@ var Main = (function (_super) {
                         return [4 /*yield*/, platform.getUserInfo()];
                     case 2:
                         userInfo = _a.sent();
-                        egret.localStorage.setItem("openid", userInfo.openid);
+                        egret.localStorage.setItem("openId", userInfo.openid);
                         Sk_PostJSON.SendTo(userInfo, function (jsonObject) { }, "", Sk_DATA.CHECK_USER_URL, this);
                         return [2 /*return*/];
                 }

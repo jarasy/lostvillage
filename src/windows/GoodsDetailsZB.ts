@@ -74,7 +74,7 @@ class GoodsDetailsZB extends Scene {
 	}
 
 	private over(result,self) {
-		var data=JSON.parse("{\"openid\":\""+egret.localStorage.getItem("openid")+"\"}");	
+		var data=JSON.parse("{\"openId\":\""+egret.localStorage.getItem("openId")+"\"}");	
 		Sk_PostJSON.SendTo(data,self.toLoadProperty,"",Sk_DATA.GET_ROLEPROPERTY_URL,this);	 
 
 	}

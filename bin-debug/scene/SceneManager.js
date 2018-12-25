@@ -38,6 +38,10 @@ var SceneManager = (function () {
             this.pop_scene = null;
         }
     };
+    //获取场景层
+    SceneManager.prototype.getCurrentScene = function () {
+        return this.currentScene;
+    };
     return SceneManager;
 }());
 __reflect(SceneManager.prototype, "SceneManager");

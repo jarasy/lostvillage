@@ -36,4 +36,9 @@ class SceneManager {
 			this.pop_scene = null;
 		}
 	}
+
+	//获取场景层
+	public getCurrentScene():any{
+		return this.currentScene;
+	}
 }

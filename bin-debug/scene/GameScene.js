@@ -16,13 +16,17 @@ var GameScene = (function (_super) {
         return _this;
     }
     GameScene.prototype.onComplete = function () {
-        var data = JSON.parse(egret.localStorage.getItem("property"));
+        //console.log(egret.localStorage.getItem("property"));
+        var data = egret.localStorage.getItem("property");
+        egret.localStorage.setItem("roleId", data.id);
         this.dj.text = data.level;
         this.mc.text = data.name;
         this.hs.text = data.hs;
         this.property.text = data.hp + "_" + data.mp + "_" + data.gj + "_" + data.fy + "_" + data.sd + "_" + data.hx;
         this.btn_bb.touchEnabled = true;
-        this.btn_bb.addEventListener(egret.TouchEvent.TOUCH_TAP, this.toShowView, this);
+        this.btn_bb.addEventListener(egret.TouchEvent.TOUCH_TAP, this.toShowBB, this);
+        this.btn_map.touchEnabled = true;
+        this.btn_map.addEventListener(egret.TouchEvent.TOUCH_TAP, this.toShowMap, this);
     };
     GameScene.prototype.onLoadTx = function (base64, self) {
         var saveImage = new Image;
@@ -39,9 +43,13 @@ var GameScene = (function (_super) {
         };
         saveImage.src = "data:image/png;base64," + base64.data;
     };
-    GameScene.prototype.toShowView = function () {
+    GameScene.prototype.toShowBB = function () {
         var bs = new BackpackScene();
-        SceneManager.Instance.pushScene(bs);
+        SceneManager.Instance.changeScene(bs);
+    };
+    GameScene.prototype.toShowMap = function () {
+        var mv = new MapView();
+        SceneManager.Instance.changeScene(mv);
     };
     return GameScene;
 }(Scene));

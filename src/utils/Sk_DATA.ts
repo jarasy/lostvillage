@@ -23,7 +23,7 @@ module Sk_DATA {
     //场景控制
 
     //基础域名
-    //export var BASEURL="https://jarasy.25tk.cn/api";
+    ///export var BASEURL="https://jarasy.25tk.cn/api";
     export var BASEURL="http://127.0.0.1:9301";
     //检查注册用户URL
     export var CHECK_USER_URL =BASEURL+"/user/checkUser";
@@ -52,10 +52,17 @@ module Sk_DATA {
     //丢弃物品(数量)URL id count
     export var TO_DQCOUNT_URL =BASEURL+"/backpake/dqGoodsForCount";
 
+    //获取玩家 URL openId
+    export var GET_PLAYS_URL =BASEURL+"/fighting/getPlayers";
+    //获取奖励 URL id
+    export var GET_AWARDS_URL =BASEURL+"/fighting/getAwards";
 
 
     //微信
     export var WeChatSKD: any;
+
+    //ID获取物品URL
+    export var GET_MONSTERS_URL =BASEURL+"/fighting/getMonsters";
 
 
 

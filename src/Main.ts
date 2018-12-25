@@ -63,7 +63,7 @@ class Main extends eui.UILayer {
         //const result = await RES.getResAsync("description_json")
         //this.startAnimation(result);
         const userInfo =await platform.getUserInfo();
-        egret.localStorage.setItem("openid",userInfo.openid);
+        egret.localStorage.setItem("openId",userInfo.openid);
         Sk_PostJSON.SendTo(userInfo,function(jsonObject){},"",Sk_DATA.CHECK_USER_URL,this);
 
     }

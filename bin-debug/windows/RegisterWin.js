@@ -43,11 +43,14 @@ var RegisterWin = (function (_super) {
     RegisterWin.prototype.onToAddRole = function () {
         SceneManager.Instance.popScene();
         //console.log(this.gender+"=="+this.profession);
-        var data = JSON.parse("{\"openid\":\"" + egret.localStorage.getItem("openid") + "\"," + "\"name\":\"" + this.ipt_name.text + "\"," + "\"gender\":\"" + this.gender + "\"," + "\"profession\":\"" + this.profession + "\"}");
+        var lw = new LoadingWin();
+        SceneManager.Instance.pushScene(lw);
+        var data = JSON.parse("{\"openId\":\"" + egret.localStorage.getItem("openId") + "\"," + "\"name\":\"" + this.ipt_name.text + "\"," + "\"gender\":\"" + this.gender + "\"," + "\"profession\":\"" + this.profession + "\"}");
         Sk_PostJSON.SendTo(data, this.onToGameScene, "", Sk_DATA.ADD_ROLE_URL, this);
     };
     RegisterWin.prototype.onToGameScene = function (result, self) {
         if (0 == result.code) {
+            egret.localStorage.setItem("property", result.data);
             var s1 = new GameScene();
             //切换到首页
             SceneManager.Instance.changeScene(s1);

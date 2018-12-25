@@ -23,6 +23,9 @@
     },
     {
       "name": "game"
+    },{
+      "name": "particle",
+      "path":"E:\\egret-game-library-master\\egret-game-library-master\\particle\\libsrc"
     }
   ]
 }
