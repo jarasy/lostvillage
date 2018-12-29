@@ -1,7 +1,7 @@
 
 
   // 字体大小。
-  "editor.fontSize": 14,
+  "editor.fontSize": 10,
 
   // 自动保存文件. 有效值: "off", "afterDelay", "onFocusChange". 如果设置 "onWindowChange" 可以使用 "files.autoSaveDelay" 设置延时。
   "files.autoSave": "off",

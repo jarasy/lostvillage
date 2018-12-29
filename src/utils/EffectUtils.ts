@@ -36,7 +36,6 @@ class EffectUtils {
     public static startFlicker(obj: egret.DisplayObject, alphaTime: number): void {
         obj.alpha = 1;
         egret.Tween.get(obj).to({ "alpha": 0 }, alphaTime).to({ "alpha": 1 }, alphaTime).call(this.startFlicker, this, [obj, alphaTime]);
-        console.log(obj.alpha+"=="+alphaTime);
     }
 
     /**
@@ -44,6 +43,7 @@ class EffectUtils {
      * @param obj
      */
     public static stopFlicker(obj: egret.DisplayObject): void {
+         obj.alpha = 1;
         egret.Tween.removeTweens(obj);
     }
 
@@ -52,6 +52,7 @@ class EffectUtils {
      * @param obj
      */
     public static startShake(obj: egret.DisplayObject, shakeTime: number, shakeHeight: number = 20): void {
+
         if (!obj["shakeStartY"]) {
             obj["shakeStartY"] = obj.y;
             obj["shakeEndY"] = obj.y + shakeHeight;
@@ -66,9 +67,10 @@ class EffectUtils {
      * @param obj
      */
     public static stopShake(obj: egret.DisplayObject): void {
+        egret.Tween.get(obj).to({ "y": obj["shakeStartY"] },10).call(function(){egret.Tween.removeTweens(obj);},this);
         delete obj["shakeStartY"];
         delete obj["shakeEndY"];
-        egret.Tween.removeTweens(obj);
+
     }
 
     /**
@@ -99,5 +101,12 @@ class EffectUtils {
         ];
         let colorFlilter = new egret.ColorMatrixFilter(colorMatrix);
         obj.filters = [colorFlilter];
+    }
+
+        /**
+     * 取消显示对象“灰化”效果
+     */
+    public  static cancleDisplayObjectGray(obj: egret.DisplayObject): void {
+        obj.filters=null;
     }
 }
