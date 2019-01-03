@@ -285,8 +285,14 @@ class FightingScene extends Scene {
 					//将例子系统添加到舞台
 					//this.addChild(system);
 					console.log(this.grpPs[attArr[i].index].x+"==="+this.grpPs[attArr[i].index].y);
-
-					var tw = egret.Tween.get(jn).to( {x:this.grpPs[attArr[i].index].x,y:this.grpPs[attArr[i].index].y ,'scaleX': 1.5,'scaleY': 1.5}, 1000).call(this.toAttActionByMs,this,[attacker,attArr[i],jn]);
+					//被攻击者已死亡
+					if(attArr[i].died!=1){
+						var tw = egret.Tween.get(jn).to( {x:this.grpPs[attArr[i].index].x,y:this.grpPs[attArr[i].index].y ,'scaleX': 1.5,'scaleY': 1.5}, 1000).call(this.toAttActionByMs,this,[attacker,attArr[i],jn]);
+						
+					}else{
+						console.log("attackEd"+attArr[i].name+"已死亡");
+					}
+					
 					
 				}
 
@@ -332,6 +338,8 @@ class FightingScene extends Scene {
 
 	//攻击目标
 	private toAttActionByMs(attacker:any,atted:any,jn:egret.Bitmap):void{
+		
+
 		//颜色矩阵数组
         var hxyj:boolean=false;
 		//EffectUtils.startFlicker(this.imgPs[atted.index],80);
@@ -400,6 +408,9 @@ class FightingScene extends Scene {
 					for(let i=0;i<this.fightingPlayerArr.length;i++){
 						this.fightingPlayerArr[i].indexArr=i;
 					}
+					 console.log("打死"+this.grpPs);
+					 console.log(this.grpPs);
+                     console.log("下标"+atted.index);
 					this.removeChild(this.grpPs[atted.index]);
 				}
 			}
@@ -480,6 +491,8 @@ class FightingScene extends Scene {
 									this.skillArr=[];
 								},this);
 								EffectUtils.stopFlicker(this.grpPs[attacker.index]);
+								
+								this.toWin();
 								return;
 							}
 							for(let i=0;i<this.fightingMonsterArr.length;i++){
@@ -575,11 +588,26 @@ class FightingScene extends Scene {
 	}
 
 
-	private toBack() {	
-		//this.saveData();
+	public toBack() {	
+		this.saveData();
 		this.gameOver=true;
 		SceneManager.Instance.popScene();
 	}
 
+	private toWin(){
+		var data=JSON.parse("{\"id\":\""+this.award+"\"}");	
+		Sk_PostJSON.SendTo(data,this.getAward,"",Sk_DATA.GET_AWARDS_URL,this);	
+	}
+
+	private getAward(result, self){
+		//eui.Alert.show("您还没有登录!","提醒",this.toBack);
+		var t:AwardWin =new AwardWin(self,result.data);
+		t.y=self.height/2-(t.height/2);
+		t.x=self.width/2-(t.width/2);
+		console.log(result.data);
+		self.addChild(t);
+
+
+	}
 	
 }

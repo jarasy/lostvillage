@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="FightingScene" width="640" height="1136" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<e:Rect top="0" bottom="0" left="0" right="0" fillColor="0x594242"/>
-	<e:Group id="grp_monster_06" width="116" height="174" x="66" y="86" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="grp_monster_06" width="116" height="174" x="66" y="86" anchorOffsetX="0" anchorOffsetY="0" visible="false">
 		<e:Rect fillColor="0x682929" top="0" bottom="0" left="0" right="0"/>
 		<e:Image id="img_monster_06" width="85" height="85" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0" verticalCenter="0"/>
 		<e:Label id="lab_monster_06" text="怪物" x="0" y="138" anchorOffsetX="0" width="113" anchorOffsetY="0" height="26" textAlign="center" size="23"/>
 	</e:Group>
-	<e:Group id="grp_monster_02" width="116" height="174" x="252" y="90" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="grp_monster_02" width="116" height="174" x="252" y="90" anchorOffsetX="0" anchorOffsetY="0" visible="false">
 		<e:Rect fillColor="0x682929" top="0" bottom="0" left="0" right="0"/>
 		<e:Image id="img_monster_02" width="85" height="85" anchorOffsetX="0" anchorOffsetY="0" verticalCenter="0" horizontalCenter="0"/>
 		<e:Label id="lab_monster_02" text="怪物" x="0" y="138" anchorOffsetX="0" width="113" anchorOffsetY="0" height="26" textAlign="center" size="23"/>
 	</e:Group>
-	<e:Group id="grp_monster_05" width="116" height="174" x="452" y="92" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="grp_monster_05" width="116" height="174" x="452" y="92" anchorOffsetX="0" anchorOffsetY="0" visible="false">
 		<e:Rect fillColor="0x682929" top="0" bottom="0" left="0" right="0"/>
 		<e:Image id="img_monster_05" width="85" height="85" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0" verticalCenter="0"/>
 		<e:Label id="lab_monster_05" text="怪物" x="0" y="138" anchorOffsetX="0" width="113" anchorOffsetY="0" height="26" textAlign="center" size="23"/>
 	</e:Group>
-	<e:Group id="grp_monster_03" width="116" height="174" x="64" y="296" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="grp_monster_03" width="116" height="174" x="64" y="296" anchorOffsetX="0" anchorOffsetY="0" visible="false">
 		<e:Rect fillColor="0x682929" top="0" bottom="0" left="0" right="0"/>
 		<e:Image id="img_monster_03" width="85" height="85" anchorOffsetX="0" anchorOffsetY="0" verticalCenter="0" horizontalCenter="0"/>
 		<e:Label id="lab_monster_03" text="怪物" x="0" y="138" anchorOffsetX="0" width="113" anchorOffsetY="0" height="26" textAlign="center" size="23"/>
 	</e:Group>
-	<e:Group id="grp_monster_01" width="116" height="174" x="250" y="300" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="grp_monster_01" width="116" height="174" x="250" y="300" anchorOffsetX="0" anchorOffsetY="0" visible="false">
 		<e:Rect fillColor="0x682929" top="0" bottom="0" left="0" right="0"/>
 		<e:Image id="img_monster_01" width="85" height="85" anchorOffsetX="0" anchorOffsetY="0" verticalCenter="0" horizontalCenter="0"/>
 		<e:Label id="lab_monster_01" text="怪物" x="0" y="138" anchorOffsetX="0" width="113" anchorOffsetY="0" height="26" textAlign="center" size="23"/>
 	</e:Group>
-	<e:Group id="grp_monster_04" width="116" height="174" x="450" y="302" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="grp_monster_04" width="116" height="174" x="450" y="302" anchorOffsetX="0" anchorOffsetY="0" visible="false">
 		<e:Rect fillColor="0x682929" top="0" bottom="0" left="0" right="0"/>
 		<e:Image id="img_monster_04" width="85" height="85" anchorOffsetX="0" anchorOffsetY="0" verticalCenter="0" horizontalCenter="0"/>
 		<e:Label id="lab_monster_04" text="怪物" x="0" y="138" anchorOffsetX="0" width="113" anchorOffsetY="0" height="26" textAlign="center" size="23"/>
 	</e:Group>
-	<e:Group id="grp_player_01" width="122" height="166" x="250.95" y="778.31" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="grp_player_01" width="122" height="166" x="250.95" y="778.31" anchorOffsetX="0" anchorOffsetY="0" visible="false">
 		<e:Image id="img_player_01" width="96" height="81.57" x="12.45" y="10.52" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"/>
 		<e:Label id="lab_player_01" text="玩家" x="16.39" y="114.34" anchorOffsetY="0" height="22.6" anchorOffsetX="0" width="93.09" scaleX="1" scaleY="1" textAlign="center" size="20"/>
 	</e:Group>
-	<e:Group id="grp_player_02" width="122" height="166" x="87.65" y="781.31" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1">
+	<e:Group id="grp_player_02" width="122" height="166" x="87.65" y="781.31" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" visible="false">
 		<e:Image id="img_player_02" width="96" height="89.15" x="14.5" y="5.33" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"/>
 		<e:Label id="lab_player_02" text="玩家" x="18.71" y="111.34" anchorOffsetY="0" height="25.63" anchorOffsetX="0" width="85.51" scaleX="1" scaleY="1" textAlign="center" size="20"/>
 	</e:Group>
-	<e:Group id="grp_player_03" width="122" height="166" x="419.19" y="781.91" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="grp_player_03" width="122" height="166" x="419.19" y="781.91" anchorOffsetX="0" anchorOffsetY="0" visible="false">
 		<e:Image id="img_player_03" width="96" height="80.06" x="14.5" y="9.87" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"/>
 		<e:Label id="lab_player_03" text="玩家" x="18.29" y="108.47" anchorOffsetY="0" height="30.18" anchorOffsetX="0" width="99.15" scaleX="1" scaleY="1" textAlign="center" size="20"/>
 	</e:Group>

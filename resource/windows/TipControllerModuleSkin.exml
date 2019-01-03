@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="TipControllerModuleSkin" width="400" height="300" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Group id="exml_tipGroup" width="400" anchorOffsetX="200" anchorOffsetY="150" x="200" y="150">
+		<e:Rect width="400" height="300" x="0" y="0" fillColor="0x6d49fc"/>
+		<e:Label id="exml_tipText" text="测试test" y="135" bold="true" x="143"/>
+		<e:Rect width="400" height="75" x="0" y="0" fillAlpha="0.7"/>
+		<e:Button id="exml_closeBtn" label="关闭" x="301" y="0" enabled="true"/>
+		<e:Label text="小提示" y="25" x="155"/>
+	</e:Group>
+</e:Skin>

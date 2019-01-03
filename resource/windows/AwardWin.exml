@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="AwardWin" width="400" height="300" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Rect left="0" right="0" top="0" bottom="0" fillColor="0xedf76c"/>
+	<e:Label text="战斗胜利!" x="135.5" y="56" textAlign="center" textColor="0xf47777"/>
+	<e:Label text="获得奖励:" x="44.5" y="131" size="19"/>
+	<e:Button id="btn_win" label="确认" x="144" y="241" anchorOffsetX="0" width="112" anchorOffsetY="0" height="38"/>
+	<e:Label id="lab_lvUp" text="" x="151.5" y="99" textColor="0xe02626" size="21" anchorOffsetX="0" width="97" anchorOffsetY="0" height="19" textAlign="center"/>
+	<e:Label id="lab_award" text="" x="156" y="131" size="19"/>
+</e:Skin>

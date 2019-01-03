@@ -18,10 +18,16 @@ var FightingScene = (function (_super) {
         _this.grpPs = [];
         _this.imgPs = [];
         _this.labPs = [];
+        _this.grpSkills = [];
+        _this.imgSkills = [];
+        _this.labSkills = [];
         _this.fightingPlayerArr = new Array();
         _this.fightingMonsterArr = new Array();
+        _this.skillArr = new Array();
         _this.tempArr = new Array();
         _this.gameOver = false;
+        _this.msClick = false;
+        _this.attClick = false;
         _this.skinName = "resource/scene/FightingScene.exml";
         return _this;
     }
@@ -47,6 +53,9 @@ var FightingScene = (function (_super) {
         this.grpPs = [this.grp_player_01, this.grp_player_02, this.grp_player_03];
         this.imgPs = [this.img_player_01, this.img_player_02, this.img_player_03];
         this.labPs = [this.lab_player_01, this.lab_player_02, this.lab_player_03];
+        this.grpSkills = [this.grp_skill_01, this.grp_skill_02, this.grp_skill_03, this.grp_skill_04, this.grp_skill_05];
+        this.imgSkills = [this.img_skill_01, this.img_skill_02, this.img_skill_03, this.img_skill_04, this.img_skill_05];
+        this.labSkills = [this.lab_skill_01, this.lab_skill_02, this.lab_skill_03, this.lab_skill_04, this.lab_skill_05];
         for (var i = 0; i < monsters.length; i++) {
             this.labMs[i].text = monsters[i].name;
             this.imgMs[i].source = RES.getRes("m_001_png");
@@ -58,6 +67,7 @@ var FightingScene = (function (_super) {
             monsters[i].tempMp = 0;
             monsters[i].died = 0;
             this.fightingMonsterArr.push(monsters[i]);
+            this.grpMs[i].addEventListener(egret.TouchEvent.TOUCH_TAP, this.msOnClick.bind(this, i), this);
         }
         console.log(monsters);
         console.log(players);
@@ -99,9 +109,11 @@ var FightingScene = (function (_super) {
     FightingScene.prototype.startRound = function () {
         if (!this.gameOver) {
             if (this.tempArr.length == 0) {
-                console.log("回合结束啦啦啦啦啦");
+                console.log("回合开始啦啦啦啦啦");
                 this.tempArr = this.fightingMonsterArr;
                 this.tempArr = this.tempArr.concat(this.fightingPlayerArr);
+                console.log("攻击队列");
+                console.log(this.tempArr);
             }
             if (this.tempArr.length != 0) {
                 this.tempArr.sort(function (a, b) {
@@ -123,22 +135,24 @@ var FightingScene = (function (_super) {
     FightingScene.prototype.toaAttack = function (attacker) {
         //攻击者已死亡
         if (attacker.died == 1) {
-            console.log(attacker.name + "已死亡");
+            console.log("toaAttack" + attacker.name + "已死亡");
             this.startRound();
             return;
         }
-        var successJN = false;
-        console.log(attacker.hp + "<<<<<" + attacker.tempHp);
-        var hp = attacker.hp - attacker.tempHp;
-        var mp = attacker.mp - attacker.tempMp;
-        var gj = attacker.gj;
-        var hx = attacker.hx;
-        var sd = attacker.sd;
         //技能
         var skills = attacker.skills;
         var attArr = new Array();
+        var hp = 0;
+        var mp = 0;
+        var gj = attacker.gj;
+        var hx = attacker.hx;
+        var sd = attacker.sd;
         //怪物
         if (0 == attacker.lx) {
+            console.log("怪物" + attacker.name + "开始攻击");
+            hp = attacker.hp - attacker.tempHp;
+            mp = attacker.mp - attacker.tempMp;
+            var successJN = false;
             while (!successJN) {
                 //技能随机
                 var si = UTILS.GetRandomIntInclusive(0, skills.length - 1);
@@ -198,12 +212,37 @@ var FightingScene = (function (_super) {
                 }
                 successJN = true;
             }
-            egret.setTimeout(this.startRound, this, 5000);
+            egret.setTimeout(this.startRound, this, 1500);
             //玩家
         }
         else {
-            console.log(attacker.name + "玩家行动");
-            egret.setTimeout(this.startRound, this, 500);
+            console.log("玩家" + attacker.name + "开始攻击");
+            EffectUtils.startFlicker(this.grpPs[attacker.index], 600);
+            if (attacker.type == 1) {
+                hp = attacker.hp - this.tempHpPlayer;
+                mp = attacker.mp - this.tempMpPlayer;
+            }
+            else if (attacker.type == 2) {
+                hp = attacker.hp - this.tempHpFs;
+                mp = attacker.mp - this.tempMpFs;
+            }
+            else if (attacker.type == 3) {
+                hp = attacker.hp - this.tempHpPet;
+                mp = attacker.mp - this.tempMpPet;
+            }
+            for (var i = 0; i < skills.length; i++) {
+                this.labSkills[i].text = skills[i].name;
+                this.imgSkills[i].source = RES.getRes("play_02_png");
+                this.grpSkills[i].visible = true;
+                skills[i].idx = i;
+                this.skillArr.push(skills[i]);
+                this.grpSkills[i].addEventListener(egret.TouchEvent.TOUCH_TAP, this.skillsOnClick.bind(this, i), this);
+            }
+            this.grp_skills.visible = true;
+            var tw = egret.Tween.get(this.grp_skills).to({ x: 0 }, 300);
+            this.btn_att.visible = false;
+            this.btn_att.once(egret.TouchEvent.TOUCH_TAP, function () { this.toAttActionByPs(attacker); }, this);
+            //egret.setTimeout(this.startRound, this, 500);
         }
     };
     //攻击目标
@@ -243,7 +282,7 @@ var FightingScene = (function (_super) {
             textXL.y = this.grpPs[atted.index].y;
             this.addChild(textXL);
             //减少血量飘动
-            egret.Tween.get(textXL).to({ "y": textXL.y - 70 }, 3000).call(this.removeChildMy, this, [textXL]);
+            egret.Tween.get(textXL).to({ "y": textXL.y - 70 }, 3000).call(function () { this.removeChild(textXL); }, this);
             if (atted.type == 1) {
                 this.tempHpPlayer += sh;
                 console.log("wj剩余血量==============" + (atted.hp - this.tempHpPlayer));
@@ -258,8 +297,12 @@ var FightingScene = (function (_super) {
                 //同伴死亡 
                 if (atted.hp - this.tempHpFs <= 0) {
                     EffectUtils.setDisplayObjectGray(this.imgPs[atted.index]);
-                    this.fightingPlayerArr.splice(atted.index, 1);
+                    this.fightingPlayerArr.splice(atted.indexArr, 1);
                     atted.died = 1;
+                    for (var i = 0; i < this.fightingPlayerArr.length; i++) {
+                        this.fightingPlayerArr[i].indexArr = i;
+                    }
+                    this.removeChild(this.grpPs[atted.index]);
                 }
             }
             else if (atted.type == 3) {
@@ -268,15 +311,153 @@ var FightingScene = (function (_super) {
                 //同伴死亡 
                 if (atted.hp - this.tempHpPet <= 0) {
                     EffectUtils.setDisplayObjectGray(this.imgPs[atted.index]);
-                    this.fightingPlayerArr.splice(atted.index, 1);
+                    this.fightingPlayerArr.splice(atted.indexArr, 1);
                     atted.died = 1;
+                    for (var i = 0; i < this.fightingPlayerArr.length; i++) {
+                        this.fightingPlayerArr[i].indexArr = i;
+                    }
+                    this.removeChild(this.grpPs[atted.index]);
                 }
             }
+            console.log("玩家信息");
+            console.log(this.fightingPlayerArr);
         }
         this.removeChild(jn);
     };
+    //攻击目标
+    FightingScene.prototype.toAttActionByPs = function (attacker) {
+        if (this.attClick) {
+            console.log(attacker.name + '玩家攻击');
+            //颜色矩阵数组
+            var hxyj = false;
+            //EffectUtils.startFlicker(this.imgPs[atted.index],80);
+            //被攻击震动
+            EffectUtils.startShake(this.grpMs[this.msIdx], 40);
+            egret.setTimeout(function () {
+                EffectUtils.stopShake(this.grpMs[this.msIdx]);
+            }, this, 500);
+            var atted = this.fightingMonsterArr[this.msIdx];
+            console.log('被玩家攻击下标' + this.msIdx);
+            console.log(this.fightingMonsterArr);
+            var mz = RECKON.GetMZ(attacker.lv, atted.lv, attacker.sd, atted.sd, attacker.rank, atted.rank);
+            var sj = UTILS.GetRandomIntInclusive(0, 100);
+            //console.log(sj+"==sj="+mz*100);
+            if (sj < (mz * 100)) {
+                var gj = RECKON.GetGJ(attacker.lv, atted.lv, atted.fy);
+                var hx = RECKON.GetHX(attacker.lv, atted.lv, attacker.hx);
+                sj = UTILS.GetRandomIntInclusive(0, 100);
+                ///console.log(sj+"==hx="+hx*100);
+                var sh;
+                if (sj > (hx * 100)) {
+                    //未会心
+                    //console.log("伤害"+Math.round(attacker.gj*gj));
+                    sh = Math.round(attacker.gj * gj);
+                }
+                else {
+                    //会心
+                    sh = Math.round(attacker.gj * gj * 1.5);
+                }
+                //减少血量
+                var textXL = new egret.TextField();
+                textXL.text = "- " + sh;
+                textXL.size = 30;
+                textXL.textColor = 0xff0000;
+                textXL.x = this.grpMs[atted.index].x + this.grpMs[atted.index].width / 2;
+                textXL.y = this.grpMs[atted.index].y - 50;
+                this.addChild(textXL);
+                //减少血量飘动
+                egret.Tween.get(textXL).to({ "y": textXL.y - 70 }, 3000).call(function () { this.removeChild(textXL); }, this);
+                atted.tempHp += sh;
+                console.log(atted.name + "剩余血量==============" + (atted.hp - atted.tempHp));
+                //怪物死亡 
+                if (atted.hp - atted.tempHp <= 0) {
+                    egret.Tween.get(this.grpMs[atted.index]).to({ alpha: 0 }, 600);
+                    EffectUtils.setDisplayObjectGray(this.imgMs[atted.index]);
+                    this.fightingMonsterArr.splice(atted.indexArr, 1);
+                    atted.died = 1;
+                    if (this.fightingMonsterArr.length == 0) {
+                        console.log("战斗胜利");
+                        var tw = egret.Tween.get(this.grp_skills).to({ x: 640 }, 200).call(function () {
+                            this.grp_skills.visible = false;
+                            for (var i = 0; i < this.skillArr.length; i++) {
+                                this.grpSkills[i].visible = false;
+                                EffectUtils.cancleDisplayObjectGray(this.grpSkills[i]);
+                            }
+                            this.skillArr = [];
+                        }, this);
+                        EffectUtils.stopFlicker(this.grpPs[attacker.index]);
+                        return;
+                    }
+                    for (var i = 0; i < this.fightingMonsterArr.length; i++) {
+                        this.fightingMonsterArr[i].indexArr = i;
+                    }
+                    this.attClick = false;
+                    this.removeChild(this.grpMs[atted.index]);
+                    console.log("怪物剩下:");
+                    console.log(this.fightingMonsterArr);
+                }
+                else {
+                    EffectUtils.cancleDisplayObjectGray(this.grpMs[atted.index]);
+                }
+            }
+            else {
+                var textXL = new egret.TextField();
+                textXL.text = "Miss";
+                textXL.size = 30;
+                textXL.textColor = 0xff0000;
+                textXL.x = this.grpMs[atted.index].x + this.grpMs[atted.index].width / 2;
+                textXL.y = this.grpMs[atted.index].y - 50;
+                this.addChild(textXL);
+                //减少血量飘动
+                egret.Tween.get(textXL).to({ "y": textXL.y - 70 }, 3000).call(function () { this.removeChild(textXL); }, this);
+                EffectUtils.cancleDisplayObjectGray(this.grpMs[atted.index]);
+            }
+            var tw = egret.Tween.get(this.grp_skills).to({ x: 640 }, 200).call(function () {
+                this.grp_skills.visible = false;
+                for (var i = 0; i < this.skillArr.length; i++) {
+                    this.grpSkills[i].visible = false;
+                    EffectUtils.cancleDisplayObjectGray(this.grpSkills[i]);
+                }
+                this.skillArr = [];
+            }, this);
+            EffectUtils.stopFlicker(this.grpPs[attacker.index]);
+            egret.setTimeout(this.startRound, this, 1500);
+        }
+        else {
+            console.log("选技能和怪物啊!");
+            return;
+        }
+    };
     FightingScene.prototype.removeChildMy = function (obj) {
         this.removeChild(obj);
+    };
+    FightingScene.prototype.skillsOnClick = function (idx, e) {
+        this.skillIdx = idx;
+        console.log(idx);
+        for (var i = 0; i < this.grpSkills.length; i++) {
+            EffectUtils.cancleDisplayObjectGray(this.grpSkills[i]);
+        }
+        EffectUtils.setDisplayObjectGray(this.grpSkills[idx]);
+        this.msClick = true;
+    };
+    FightingScene.prototype.msOnClick = function (idx, e) {
+        if (this.msClick) {
+            console.log(e);
+            for (var i = 0; i < this.grpMs.length; i++) {
+                EffectUtils.cancleDisplayObjectGray(this.grpMs[i]);
+            }
+            EffectUtils.setDisplayObjectGray(this.grpMs[idx]);
+            for (var i = 0; i < this.fightingMonsterArr.length; i++) {
+                if (idx == this.fightingMonsterArr[i].index) {
+                    this.msIdx = this.fightingMonsterArr[i].indexArr;
+                    this.attClick = true;
+                    this.btn_att.visible = true;
+                }
+            }
+        }
+        else {
+            console.log("请选择怪物啊");
+        }
     };
     FightingScene.prototype.saveData = function () {
         var p = SceneManager.Instance.getCurrentScene();
@@ -286,9 +467,6 @@ var FightingScene = (function (_super) {
         p.tempMpFs = this.tempMpFs;
         p.tempHpPet = this.tempHpPet;
         p.tempMpPet = this.tempMpPet;
-    };
-    FightingScene.prototype.getMonsters = function (result, self) {
-        console.log(result.data);
     };
     FightingScene.prototype.toBack = function () {
         this.saveData();

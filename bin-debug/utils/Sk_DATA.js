@@ -5,8 +5,8 @@ var Sk_DATA;
     Sk_DATA.IsDeBUG = false;
     //场景控制
     //基础域名
-    ///export var BASEURL="https://jarasy.25tk.cn/api";
-    Sk_DATA.BASEURL = "http://127.0.0.1:9301";
+    Sk_DATA.BASEURL = "https://jarasy.25tk.cn/api";
+    //export var BASEURL="http://127.0.0.1:9301";
     //检查注册用户URL
     Sk_DATA.CHECK_USER_URL = Sk_DATA.BASEURL + "/user/checkUser";
     //获取角色URL

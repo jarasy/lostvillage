@@ -23,8 +23,8 @@ module Sk_DATA {
     //场景控制
 
     //基础域名
-    export var BASEURL="https://jarasy.25tk.cn/api";
-    //export var BASEURL="http://127.0.0.1:9301";
+    //export var BASEURL="https://jarasy.25tk.cn/api";
+    export var BASEURL="http://127.0.0.1:9301";
     //检查注册用户URL
     export var CHECK_USER_URL =BASEURL+"/user/checkUser";
     //获取角色URL
