@@ -52,8 +52,9 @@ class BackpackScene extends Scene {
 
 	protected onComplete() {
 		let data= <any>egret.localStorage.getItem("property");
+		console.log(data);
 		egret.localStorage.setItem("roleId",data.id);
-		this.lab_dj.text=data.level;
+		this.lab_dj.text=data.lv;
 		this.lab_hp.text=data.hp;
 		this.lab_mp.text=data.mp;
 		this.lab_gj.text=data.gj;

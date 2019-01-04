@@ -257,36 +257,38 @@ class FightingScene extends Scene {
 				console.log(attArr);
 
 				for(let i=attArr.length-1;i>=0;i--){
-					//攻击者下移 
-					var pep=this.grpMs[attacker.index].y;
-					egret.Tween.get(this.grpMs[attacker.index]).to({ "y": this.grpMs[attacker.index].y+30 }, 30).wait(2000).to({ "y": pep }, 30);
 
-					var jn = new egret.Bitmap(RES.getRes("skill_02_png"));
-					jn.width=50;
-					jn.height=50;
-					jn.x=this.grpMs[attacker.index].x;
-					jn.y=this.grpMs[attacker.index].y;
-					this.addChild(jn);
-					//获取纹理
-					//var texture = RES.getRes("skill_01_png");
-
-					//获取配置
-					//var config = RES.getRes("skill_01_json");
-
-					//创建 GravityParticleSystem
-					//var system = new particle.GravityParticleSystem(texture, config);
-					//system.width=10;
-					//system.height=10;
-					//system.x=this.grpMs[attacker.index].x;
-					//system.y=this.grpMs[attacker.index].y;
-					//启动粒子库
-					//system.start();
-
-					//将例子系统添加到舞台
-					//this.addChild(system);
-					console.log(this.grpPs[attArr[i].index].x+"==="+this.grpPs[attArr[i].index].y);
 					//被攻击者已死亡
 					if(attArr[i].died!=1){
+						//攻击者下移 
+						var pep=this.grpMs[attacker.index].y;
+						egret.Tween.get(this.grpMs[attacker.index]).to({ "y": this.grpMs[attacker.index].y+30 }, 30).wait(2000).to({ "y": pep }, 30);
+
+						var jn = new egret.Bitmap(RES.getRes("skill_02_png"));
+						jn.width=50;
+						jn.height=50;
+						jn.x=this.grpMs[attacker.index].x;
+						jn.y=this.grpMs[attacker.index].y;
+						this.addChild(jn);
+						//获取纹理
+						//var texture = RES.getRes("skill_01_png");
+
+						//获取配置
+						//var config = RES.getRes("skill_01_json");
+
+						//创建 GravityParticleSystem
+						//var system = new particle.GravityParticleSystem(texture, config);
+						//system.width=10;
+						//system.height=10;
+						//system.x=this.grpMs[attacker.index].x;
+						//system.y=this.grpMs[attacker.index].y;
+						//启动粒子库
+						//system.start();
+
+						//将例子系统添加到舞台
+						//this.addChild(system);
+						console.log(this.grpPs[attArr[i].index].x+"==="+this.grpPs[attArr[i].index].y);
+					
 						var tw = egret.Tween.get(jn).to( {x:this.grpPs[attArr[i].index].x,y:this.grpPs[attArr[i].index].y ,'scaleX': 1.5,'scaleY': 1.5}, 1000).call(this.toAttActionByMs,this,[attacker,attArr[i],jn]);
 						
 					}else{

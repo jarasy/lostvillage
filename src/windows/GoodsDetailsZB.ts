@@ -43,6 +43,7 @@ class GoodsDetailsZB extends Scene {
 
 	private onLoadLab(result,self){
         var property:String[] =String(result.data.parameter).split("_");
+		console.log(property);
 		self.wz=property[0];
         self.lab_hp.text=property[1]+"";
 		self.lab_mp.text=property[2]+"";
