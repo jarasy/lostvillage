@@ -7,3 +7,10 @@
 		}  
         console.log(escape(c));
 		
+		
+	
+Game.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, (e: egret.TouchEvent) => {
+if (e.target instanceof eui.Button) {
+		audio.QQAudio.ins.click.play(0, 1);//播放音乐
+}
+}, Game.stage);
